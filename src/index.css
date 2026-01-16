@@ -1,17 +1,81 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
-html,
-body,
-#root {
-  @apply bg-[#121418] text-[#F5E1DA] min-h-screen
-}
-
-.card {
-  color: #A0A0A0;
-  color: #D4AF37;
+@theme {
+  --color-background: #0a0a0a;
+  --color-card: #121212;       
+  --color-foreground: #ffffff;
   
+  --color-border: hsl(214.3 31.8% 91.4%);
+  --color-input: hsl(214.3 31.8% 91.4%);
+  --color-ring: hsl(222.2 84% 4.9%);
+  
+  --color-primary: #ffd700; 
+  --color-primary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(210 40% 96.1%);
+  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-muted: hsl(210 40% 96.1%);
+  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+  --color-accent: hsl(210 40% 96.1%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --color-card-foreground: hsl(222.2 84% 4.9%);
 }
 
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    margin: 0;
+    min-height: 100vh;
+  }
+}
 
+/* আপনার আগের সেই ইউটিলিটিগুলো যেমন ছিল তেমনই আছে */
+@utility btn {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  @apply disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility badge {
+  @apply inline-flex items-center rounded-full border border-transparent px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring;
+}
+
+@layer components {
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2;
+  }
+
+  .btn-outline {
+    @apply btn border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2;
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-card text-card-foreground shadow-sm;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm;
+    @apply placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .badge-default {
+    @apply badge bg-primary text-primary-foreground hover:bg-primary/80;
+  }
+
+  .badge-outline {
+    @apply badge border-border text-foreground;
+  }
+
+  .dropdown {
+    @apply relative;
+  }
+
+  .dropdown-content {
+    @apply absolute top-full left-0 mt-2 min-w-[100px] z-50;
+  }
+}

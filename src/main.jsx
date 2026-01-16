@@ -18,7 +18,9 @@ const quearyClient = new QueryClient({
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={quearyClient} >
-      <App />
+      <Router>
+        <App />
+      </Router>
       <ToastContainer position='top-right' authClose={2000} />
     </QueryClientProvider>
   </StrictMode>,
