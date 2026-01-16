@@ -1,15 +1,12 @@
-import axios from "axios";
 import { motion } from 'motion/react';
 import { Building2, Eye, EyeOff, LogIn, Mail, User, Lock } from "lucide-react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import Field from "../common/Field";
-import { registerWithEmailAndPassword } from "../../firebaseConfig";
 import { toast } from "react-toastify";
+import { resetPasswordByEmail } from '../../firebaseConfig';
 
 const RegisterForm = () => {
-    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const {
         register,
@@ -19,9 +16,9 @@ const RegisterForm = () => {
 
 
     const onSubmit = async (formData) => {
-        const {email, password} = formData
+        const {email} = formData
         try{
-           await registerWithEmailAndPassword(email, password)
+           await resetPasswordByEmail(email)
             navigate('/')
         }catch(err){
             toast.error(err.message)
@@ -47,39 +44,13 @@ const RegisterForm = () => {
                     >
                         <Field label='Email' error={errors.email}>
                             <div className="relative group">
-                                <Mail className='absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-yellow-500 transition-colors' />
+                                <Mail className='absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white z-20' />
                                 <input
                                     {...register('email', { required: "Email is required" })}
                                     className={`auth-input w-full input pl-10 bg-[#1a1a1a] border-gray-800 focus:border-yellow-500 transition-all ${errors.email ? 'border-red-600' : ''}`}
                                     type="email"
                                     placeholder="you@example.com"
                                 />
-                            </div>
-                        </Field>
-                    </motion.div>
-
-                    {/* Password Field with Motion */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5, duration: 0.5 }}
-                    >
-                        <Field label="Password" error={errors.password}>
-                            <div className="relative group">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-yellow-500 transition-colors" />
-                                <input
-                                    type={showPassword ? 'text' : "password"}
-                                    {...register('password', { required: "Password is required" })}
-                                    className={`input pl-10 pr-10 w-full bg-[#1a1a1a] border-gray-800 focus:border-yellow-500 transition-all ${errors.password ? 'border-red-600' : ''}`}
-                                    placeholder="Enter your password"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => setShowPassword((prev) => !prev)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 hover:text-yellow-500 transition-colors"
-                                >
-                                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                                </button>
                             </div>
                         </Field>
                     </motion.div>
@@ -92,7 +63,7 @@ const RegisterForm = () => {
                         className="btn btn-primary w-full text-base h-11 flex items-center justify-center bg-yellow-500 text-black hover:bg-yellow-600 border-none shadow-lg shadow-yellow-500/20"
                     >
                         <LogIn className="h-4 w-4 mr-2" />
-                        Sign In
+                        Sign Up
                     </motion.button>
                 </form>
 
@@ -118,9 +89,9 @@ const RegisterForm = () => {
                     transition={{ delay: 0.6 }}
                     className="mt-8 text-center text-sm text-muted-foreground"
                 >
-                    Already have an account?{" "}
-                    <Link to='/' className='text-yellow-500 hover:underline font-medium transition-all'>
-                        Login
+                    Don't have an account?{" "}
+                    <Link to='/register' className='text-yellow-500 hover:underline font-medium transition-all'>
+                        Sign up
                     </Link>
                 </motion.div>
             </div>

@@ -4,6 +4,7 @@ import Login from './page/Login'
 import Home from './page/Home'
 import Register from './page/Register'
 import PrivateRoute from './Route/PrivateRoute'
+import NotFound from './components/common/NotFound'
 function App() {
 
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path='/home' element={<Home />} />
 
       </Route>
+
+      <Route path='*' element={<NotFound />} />
     </Routes>
   )
 }
