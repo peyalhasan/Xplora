@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+html,
+body,
+#root {
+  @apply bg-[#121418] text-[#F5E1DA] min-h-screen
+}
+
+.card {
+  color: #A0A0A0;
+  color: #D4AF37;
+  
+}
+
+
