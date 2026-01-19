@@ -1,4 +1,3 @@
-import axios from "axios";
 import { motion } from 'motion/react'
 import { Eye, EyeOff, LogIn, Mail, Lock } from "lucide-react";
 import { FaGoogle, FaGithub } from "react-icons/fa"; 

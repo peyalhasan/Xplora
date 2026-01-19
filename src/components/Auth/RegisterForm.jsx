@@ -5,8 +5,10 @@ import { Link, useNavigate } from "react-router";
 import Field from "../common/Field";
 import { toast } from "react-toastify";
 import { resetPasswordByEmail } from '../../firebaseConfig';
+import { useState } from 'react';
 
 const RegisterForm = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const {
         register,
@@ -16,11 +18,11 @@ const RegisterForm = () => {
 
 
     const onSubmit = async (formData) => {
-        const {email} = formData
-        try{
-           await resetPasswordByEmail(email)
+        const { email } = formData
+        try {
+            await resetPasswordByEmail(email)
             navigate('/')
-        }catch(err){
+        } catch (err) {
             toast.error(err.message)
         }
     };
@@ -54,7 +56,24 @@ const RegisterForm = () => {
                             </div>
                         </Field>
                     </motion.div>
-
+                    <Field label="Password" error={errors.password}>
+                        <div className="relative group">
+                            <Lock className='absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white z-20' />
+                            <input
+                                type={showPassword ? 'text' : "password"}
+                                {...register('password', { required: "Password is required" })}
+                                className={`input pl-10 pr-10 w-full bg-[#1a1a1a] border-gray-800 focus:border-yellow-500 transition-all ${errors.password ? 'border-red-600' : ''}`}
+                                placeholder="Enter your password"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-white"
+                            >
+                                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            </button>
+                        </div>
+                    </Field>
                     {/* Submit Button with Hover/Tap Animation */}
                     <motion.button
                         whileHover={{ scale: 1.02 }}

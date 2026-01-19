@@ -26,16 +26,7 @@ const CustomCursor = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999]">
       <svg className="absolute inset-0 w-full h-full">
-        <motion.line
-          x1="0"
-          y1="0"
-          x2={trailX}
-          y2={trailY}
-          stroke="#ffa500"
-          strokeWidth="0.8"
-          strokeOpacity="0.3"
-          strokeDasharray="5 5"
-        />
+
 
         <motion.line
           x1={trailX}

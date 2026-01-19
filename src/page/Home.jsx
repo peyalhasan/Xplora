@@ -1,26 +1,22 @@
 import React from 'react';
-import {useAuthState} from 'react-firebase-hooks/auth'
 import { auth } from '../firebaseConfig';
 import { useNavigate } from 'react-router';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import Header from '../components/common/Header';
+import useAuth from '../../hooks/useAuth';
 
 const Home = () => {
-    const [user, loading, error] = useAuthState(auth)
+    const {user, loading, error} = useAuth()
+   
     const navigate = useNavigate()
+    
 
-    const handleLogout = () =>{
-        signOut(auth).then(()=>{
-            navigate('/')
-            toast.success('Sign Out')
-        })
-    }
-
-    if(loading) return <p>User info loading</p>
+    if (loading) return <p>User info loading</p>
     return (
-        <div>
-            Home
-            <button onClick={handleLogout}>sign out</button>
+        <div className='container mx-auto'>
+            <Header />
+            
         </div>
     );
 };
