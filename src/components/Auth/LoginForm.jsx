@@ -114,7 +114,7 @@ const LoginForm = () => {
                         onClick={handleGoogleSignIn}
                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                         whileTap={{ scale: 0.95 }}
-                        type="button" // type button জরুরি যাতে ফর্ম সাবমিট না হয়
+                        type="button" 
                         className="flex items-center justify-center gap-2 h-11 border border-gray-700 rounded-lg text-white transition-all hover:border-yellow-500/50"
                     >
                         <FaGoogle className="text-red-500" />
@@ -141,7 +141,7 @@ const LoginForm = () => {
                 >
                     <div className="flex justify-center items-center gap-2">
                         <span>Forgot password?</span>
-                        <Link to='/rereset' className='text-yellow-500 hover:underline font-medium'>
+                        <Link to='/reset' className='text-yellow-500 hover:underline font-medium'>
                             Reset password
                         </Link>
                     </div>

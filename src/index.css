@@ -3,14 +3,14 @@
 
 @theme {
   --color-background: #0a0a0a;
-  --color-card: #121212;       
-  --color-foreground: #ffffff;
-  
+  --color-card: #121212;
+  --color-foreground: #0881C7;
+
   --color-border: hsl(214.3 31.8% 91.4%);
   --color-input: hsl(214.3 31.8% 91.4%);
   --color-ring: hsl(222.2 84% 4.9%);
-  
-  --color-primary: #ffd700; 
+
+  --color-primary: #ffd700;
   --color-primary-foreground: hsl(210 40% 98%);
   --color-secondary: hsl(210 40% 96.1%);
   --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
@@ -23,14 +23,35 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
-    background-color: var(--color-background);
+    @apply  text-foreground;
+    background-color: white;
     margin: 0;
     min-height: 100vh;
   }
 }
 
-/* আপনার আগের সেই ইউটিলিটিগুলো যেমন ছিল তেমনই আছে */
+@layer components {
+  .swiper-pagination-bullet {
+    @apply !bg-white/50 !w-3 !h-3 !opacity-100 transition-all duration-300;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply !bg-yellow-500 !w-8 rounded-full transition-all duration-300;
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 10s linear infinite alternate;
+}
+
 @utility btn {
   @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors;
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
@@ -51,7 +72,7 @@
   }
 
   .btn-outline {
-    @apply btn border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2;
+    @apply btn border border-input  hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2;
   }
 
   .card {
@@ -59,7 +80,7 @@
   }
 
   .input {
-    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm;
+    @apply flex h-10 w-full rounded-md border border-input  px-3 py-2 text-sm;
     @apply placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
   }
 

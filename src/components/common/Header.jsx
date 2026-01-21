@@ -37,7 +37,7 @@ const Header = () => {
         <motion.header
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
+            className="sticky top-0 z-[100] w-full border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md transition-all duration-300 hover:bg-[#0a0a0a]/100"
         >
             <div className="flex items-center justify-between px-4 py-3 md:px-8 max-w-[1920px] mx-auto">
 

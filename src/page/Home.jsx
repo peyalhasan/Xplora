@@ -5,18 +5,25 @@ import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import Header from '../components/common/Header';
 import useAuth from '../../hooks/useAuth';
+import usePlace from '../../hooks/usePlace';
+import Hero from '../components/Home/Hero';
+import DiscountOffer from './DiscountPage';
+import Destination from '../components/Destination';
 
 const Home = () => {
-    const {user, loading, error} = useAuth()
-   
-    const navigate = useNavigate()
-    
+    const { data, isLoading } = usePlace()
 
-    if (loading) return <p>User info loading</p>
+
+
+    if (isLoading) return <p>User info loading</p>
     return (
-        <div className='container mx-auto'>
+        <div className='w-full'>
             <Header />
-            
+            <div className='container mx-auto '>
+                <Hero />
+                <DiscountOffer />
+                <Destination />
+            </div>
         </div>
     );
 };
