@@ -5,6 +5,15 @@
 🚀 **Live Demo:** [https://xplora-s.vercel.app](https://xplora-s.vercel.app)
 
 ---
+## 📸 Image Preview
+To add an image preview in your README.md so that it looks professional on GitHub, you can use several methods. Since you are using it for your Xplora project, here are the best ways to do it:
+
+1. The Standard Markdown Method (Simple)
+Place the image file in your repository (e.g., in a folder named public or screenshots) and use this code:
+
+Markdown
+
+![Xplora Preview](./src/assets/Xplora.png)
 
 ## ✨ Key Features
 
