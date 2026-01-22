@@ -37,7 +37,7 @@ const About = () => {
                         Adventure Awaits
                     </motion.p>
                     <h1 className='text-7xl md:text-[140px] font-black text-white italic uppercase tracking-tighter leading-[0.8] mb-8 drop-shadow-2xl'>
-                        XPLORO <br /> <span className="text-yellow-500">STUDIO</span>
+                        XPLORA <br /> <span className="text-yellow-500">STUDIO</span>
                     </h1>
                     <div className="flex justify-center items-center gap-4">
                         <div className="h-[2px] w-12 bg-yellow-500 hidden md:block"></div>
@@ -73,7 +73,7 @@ const About = () => {
                         variants={fadeInUp}
                     >
                         <h2 className="text-5xl md:text-7xl font-black text-gray-900 uppercase italic tracking-tighter mb-10 leading-[0.9]">
-                            Why <span className="text-yellow-500">Xploro</span> <br /> Is Different?
+                            Why <span className="text-yellow-500">Xplora</span> <br /> Is Different?
                         </h2>
                         <div className="space-y-8 text-gray-600 text-lg md:text-xl italic leading-relaxed">
                             <p className="border-l-4 border-yellow-500 pl-6">

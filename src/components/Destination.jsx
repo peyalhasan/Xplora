@@ -7,7 +7,7 @@ import { Timer } from 'lucide-react';
 import Loading from './common/Loading';
 
 const Destination = () => {
-    const { places = [], isLoading } = usePlace();
+    const { places = [], isLoading, searchTerm } = usePlace();
     const [showAll, setShowAll] = useState(false);
 
     const visiblePlaces = useMemo(() => {
@@ -92,17 +92,16 @@ const Destination = () => {
 
             {/* Cards Grid */}
             <motion.div
-                key={showAll ? 'show-all' : 'show-10'}
+                key={`${showAll ? 'all' : 'limit'}-${searchTerm}`}
                 variants={containerVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                animate="visible"
                 className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-11/12 max-w-7xl mx-auto px-4 py-16"
             >
                 {visiblePlaces.map((p) => (
                     <motion.div
                         key={p.id}
-                        layout="position"
+                        layout
                         variants={cardVariants}
                         whileHover={{ scale: 1.05, transition: { duration: 0.4 } }}
                         className="bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden group border border-gray-100"

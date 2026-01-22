@@ -32,7 +32,7 @@ const Footer = () => {
                             whileInView={{ opacity: 1 }}
                             className="text-white text-3xl font-black italic uppercase tracking-tighter mb-6"
                         >
-                            Xpl<span className="text-yellow-500">oro</span>
+                            Xpl<span className="text-yellow-500">ora</span>
                         </motion.h3>
                         <p className="text-gray-500 max-w-md text-sm leading-relaxed mb-8">
                             Crafting unforgettable journeys for the world's most ambitious explorers. 
@@ -96,7 +96,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={16} className="text-yellow-500" /> 
-                                <span>xploro@.com</span>
+                                <span>xplora@.com</span>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +105,7 @@ const Footer = () => {
                 {/* Bottom Section: Copyright */}
                 <div className="pt-10 border-t border-white/5 flex flex-col md:row justify-between items-center gap-6">
                     <p className="text-gray-600 text-[10px] uppercase tracking-widest font-medium">
-                        © {currentYear} XPLORO ELITE LUXURY TRAVEL. ALL RIGHTS RESERVED.
+                        © {currentYear} XPLORA ELITE LUXURY TRAVEL. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex gap-8 text-gray-600 text-[10px] uppercase tracking-widest font-medium">
                         <a href="#" className="hover:text-white transition-colors">Terms</a>
