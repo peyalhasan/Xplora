@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "/Dis35.png"
+  },
+  {
+    "id": 2,
+    "image": "/Special.png"
+  },
+  {
+    "id": 3,
+    "image": "/Destination.png"
+  },
+  {
+    "id": 4,
+    "image": "/Discount50.png"
+  },
+  {
+    "id": 5,
+    "image": "/Explore.png"
+  },
+  {
+    "id": 6,
+    "image": "/Friday.png"
+  },
+  {
+    "id": 7,
+    "image": "/sale.png"
+  }
+]

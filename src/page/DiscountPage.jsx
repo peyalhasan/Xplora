@@ -1,17 +1,16 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, FreeMode } from 'swiper/modules';
-
+import images from '../../utils/db.json'
 // Swiper Styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 
-import { discounts } from '../../utils';
 
 const DiscountPage = () => {
-  const images = discounts || [];
+   
 
   return (
     <section className="w-full py-16 overflow-hidden">
