@@ -53,7 +53,7 @@ const Header = () => {
 
                     <Link className="flex items-center gap-3 group" to="/home">
                         <img className="h-10 md:h-12 w-auto transition-transform group-hover:rotate-12" src="/Xplora.png" alt="Logo" />
-                        <span className="text-xl md:text-2xl font-black tracking-tighter text-white">XPLORO</span>
+                        <span className="text-xl md:text-2xl font-black tracking-tighter italic uppercase text-white">Xpl<span className="text-yellow-500">oro</span></span>
                     </Link>
                 </div>
 

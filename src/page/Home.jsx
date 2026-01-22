@@ -9,7 +9,7 @@ import usePlace from '../../hooks/usePlace';
 import Hero from '../components/Home/Hero';
 import DiscountOffer from './DiscountPage';
 import Destination from '../components/Destination';
-import Membership from './Membership';
+import Plans from '../components/Plans';
 
 const Home = () => {
     const { data, isLoading } = usePlace()
@@ -23,7 +23,7 @@ const Home = () => {
                 <Hero />
                 <DiscountOffer />
                 <Destination />
-                <Membership />
+                <Plans />
             </div>
         </div>
     );
