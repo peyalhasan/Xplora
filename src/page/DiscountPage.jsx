@@ -17,7 +17,7 @@ const DiscountPage = () => {
       <div className="container mx-auto px-4 md:px-10">
         {/* Header Section */}
         <div>
-          <h1 className="text-4xl font-bold text-center text-blue-700">Discounts & Offers</h1>
+          <h1 className="text-4xl font-bold text-center text-yellow-700">Discounts & Offers</h1>
           <p className="text-md text-black/80 font-medium text-center my-6 ">A curated list of the most popular travel packages based on <br /> different destinations.</p>
         </div>
 

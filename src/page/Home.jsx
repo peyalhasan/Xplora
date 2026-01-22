@@ -10,20 +10,22 @@ import Hero from '../components/Home/Hero';
 import DiscountOffer from './DiscountPage';
 import Destination from '../components/Destination';
 import Plans from '../components/Plans';
+import Featured from '../components/Home/Featured';
 
 const Home = () => {
-    const { data, isLoading } = usePlace()
+    const {  isLoading } = usePlace()
 
 
 
     if (isLoading) return <p>User info loading</p>
     return (
-        <div className='w-full'>
+        <div className='w-full '>
             <div className='container mx-auto '>
                 <Hero />
                 <DiscountOffer />
                 <Destination />
                 <Plans />
+                <Featured />
             </div>
         </div>
     );

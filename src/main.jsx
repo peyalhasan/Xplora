@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import AuthProvider from '../Provider/AuthProvider.jsx'
 import PlaceProvider from '../Provider/PlaceProvider.jsx'
 import SubscriptionProvider from '../Provider/SubscriptionProvider.jsx'
+import ScrollToTop from './components/common/ScroolTop.jsx'
 
 
 const quearyClient = new QueryClient({
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={quearyClient} >
       <Router>
+        <ScrollToTop />
         <AuthProvider>
           <PlaceProvider>
             <SubscriptionProvider>

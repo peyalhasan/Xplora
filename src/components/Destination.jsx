@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import usePlace from '../../hooks/usePlace';
 import { FaLocationDot } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
+import { Timer } from 'lucide-react';
+import Loading from './common/Loading';
 
 const Destination = () => {
-    const { places = [] } = usePlace();
+    const { places = [], isLoading } = usePlace();
     const [showAll, setShowAll] = useState(false);
 
     const visiblePlaces = useMemo(() => {
@@ -32,6 +34,10 @@ const Destination = () => {
     };
 
     const placeCount = places.length;
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <section className="bg-[#F8F9FA] overflow-hidden">
@@ -96,6 +102,7 @@ const Destination = () => {
                 {visiblePlaces.map((p) => (
                     <motion.div
                         key={p.id}
+                        layout="position"
                         variants={cardVariants}
                         whileHover={{ scale: 1.05, transition: { duration: 0.4 } }}
                         className="bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden group border border-gray-100"
@@ -140,7 +147,8 @@ const Destination = () => {
 
                             <div className="flex items-center justify-between mt-4 pt-6 border-t border-gray-100">
                                 <div>
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Offer Price</p>
+                                    <p className="text-xl font-bold text-gray-400 uppercase tracking-widest mb-1">Offer Price</p>
+                                    <p className="text-lgfont-bold text-yellow-800 uppercase tracking-widest mb-1 flex"> <Timer /> {p.duration}</p>
                                     <div className="flex items-center gap-3">
                                         <h1 className="text-3xl font-black text-[#1A1A1A] tracking-tighter">
                                             ${p?.discount_price?.toLocaleString() || '—'}

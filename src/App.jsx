@@ -8,6 +8,9 @@ import NotFound from './components/common/NotFound'
 import Reset from './page/Reset'
 import Destination from './components/Destination'
 import Membership from './page/Membership'
+import Gallery from './components/Galary'
+import About from './page/About'
+import Contact from './page/Contact'
 function App() {
 
   return (
@@ -19,6 +22,9 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/destinations' element={<Destination />} />
         <Route path='/membership' element={<Membership />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
 
       </Route>
 
