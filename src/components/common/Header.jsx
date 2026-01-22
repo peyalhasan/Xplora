@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { Search, Menu, Compass, Map, Plane, Ship, LogOut, User, Settings, X } from "lucide-react";
-import useAuth from "../../../hooks/useAuth";
-import Loading from "./Loading";
-import { auth } from "../../firebaseConfig";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import useAuth from "../../../hooks/useAuth";
+import { auth } from "../../firebaseConfig";
+import Loading from '../../components/common/Loading'
 
 const Header = () => {
     const navigate = useNavigate();
@@ -27,8 +27,9 @@ const Header = () => {
     }
 
     const navLinks = [
+        { name: 'Home', path: '/home' },
         { name: 'Destinations', path: '/destinations' },
-        { name: 'Tours', path: '/tours' },
+        { name: 'Membership', path: '/membership' },
         { name: 'Flights', path: '/flights' },
         { name: 'Cruises', path: '/cruises' },
     ];
@@ -43,7 +44,7 @@ const Header = () => {
 
                 {/* Left: Logo & Mobile Menu Toggle */}
                 <div className="flex items-center gap-4">
-                    <button 
+                    <button
                         onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
                         className="p-2 hover:bg-white/5 rounded-xl transition-colors md:hidden text-white"
                     >
@@ -83,9 +84,25 @@ const Header = () => {
                     {/* Desktop Nav Links */}
                     <nav className="hidden lg:flex xl:flex items-center gap-6">
                         {navLinks.map((link) => (
-                            <Link key={link.name} to={link.path} className="text-xs font-bold text-gray-400 hover:text-yellow-500 transition-colors uppercase tracking-widest">
-                                {link.name}
-                            </Link>
+                            <NavLink
+                                key={link.name}
+                                to={link.path}
+                                className={({ isActive }) => `
+                relative text-xs font-bold uppercase tracking-widest transition-all duration-300
+                ${isActive ? 'text-yellow-500' : 'text-gray-400 hover:text-yellow-500/80'}
+            `} >
+                                {({ isActive }) => (
+                                    <>
+                                        {link.name}
+                                        {isActive && (
+                                            <motion.div
+                                                layoutId="nav-underline"
+                                                className="absolute -bottom-1 left-0 right-0 h-[2px] bg-yellow-500 rounded-full"
+                                            />
+                                        )}
+                                    </>
+                                )}
+                            </NavLink>
                         ))}
                     </nav>
 
@@ -160,9 +177,9 @@ const Header = () => {
                     >
                         <div className="p-4 space-y-4">
                             {navLinks.map((link) => (
-                                <Link 
-                                    key={link.name} 
-                                    to={link.path} 
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
                                     onClick={() => setIsMobileNavOpen(false)}
                                     className="block text-sm font-bold text-gray-400 hover:text-yellow-500 uppercase tracking-widest"
                                 >

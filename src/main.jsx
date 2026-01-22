@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
 import AuthProvider from '../Provider/AuthProvider.jsx'
 import PlaceProvider from '../Provider/PlaceProvider.jsx'
+import SubscriptionProvider from '../Provider/SubscriptionProvider.jsx'
 
 
 const quearyClient = new QueryClient({
@@ -23,7 +24,9 @@ createRoot(document.getElementById('root')).render(
       <Router>
         <AuthProvider>
           <PlaceProvider>
-            <App />
+            <SubscriptionProvider>
+              <App />
+            </SubscriptionProvider>
           </PlaceProvider>
         </AuthProvider>
       </Router>

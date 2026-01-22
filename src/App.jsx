@@ -7,6 +7,7 @@ import PrivateRoute from './Route/PrivateRoute'
 import NotFound from './components/common/NotFound'
 import Reset from './page/Reset'
 import Destination from './components/Destination'
+import Membership from './page/Membership'
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route element={<PrivateRoute />}>
         <Route path='/home' element={<Home />} />
         <Route path='/destinations' element={<Destination />} />
+        <Route path='/membership' element={<Membership />} />
 
       </Route>
 
